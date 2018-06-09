@@ -1,0 +1,59 @@
+.wrapper {
+  display: grid; 
+  grid-template-columns: 3fr 1fr; 
+  grid-template-rows: auto; 
+}
+
+.main {
+  grid-row: 1; 
+  grid-column: 1; 
+  justify-items: center; 
+  background: rgb(106, 106, 247); 
+  height: 500px;
+}
+
+.sidebar {
+  grid-row: 1; 
+  grid-column: 2; 
+  justify-items: center; 
+  align-items: center;
+  background: rgb(116, 248, 116); 
+  height: 500px;
+}
+
+.deckSelection {
+  background: rgb(176, 245, 176); 
+  height: 300px;
+  width: auto;
+  margin: 10px;
+  
+}
+
+.deckActive {
+  background: rgb(173, 173, 245); 
+  height: 300px;
+  width: auto;
+  margin: 10px;
+  padding: 10px;
+}
+
+.decks {
+  background: rgb(141, 141, 141); 
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.appear {
+  animation: appear .5s forwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1; 
+  }
+}
