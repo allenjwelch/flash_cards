@@ -1,9 +1,12 @@
 
 $('.deckSelection').on('click', '.decks', function() {
   let newDeck = $(this); 
+  let cardContainer = newDeck[0].childNodes[1]; 
   console.log(newDeck); 
+  console.log(newDeck[0].childNodes[1]); 
   $('.deckActive').append(newDeck)
-  newDeck.addClass('appear');
+  newDeck.addClass('appear'); 
+  cardContainer.addClass('flip-active');
 })
 
 $('.deckActive').on('click', '.decks', function() {
