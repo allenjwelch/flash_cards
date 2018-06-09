@@ -47,10 +47,11 @@
 
 .card-container {
   perspective: 1000px;
+
 }
 
 /* flip the pane when hovered */
-.flip-active:hover .card, .flip-active.hover .card {
+.card-container:hover .card, .card-container.hover .card {
   transform: rotateY(180deg);
 }
 
@@ -63,7 +64,7 @@
 .card {
 	transition: 0.6s;
 	transform-style: preserve-3d;
-	position: relative;
+  position: relative;
 }
 
 /* hide back of pane during swap */
@@ -78,12 +79,15 @@
 .front {
 	z-index: 2;
 	/* for firefox 31 */
-	transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  background: rgb(95, 68, 68); 
+
 }
 
 /* back, initially hidden pane */
 .back {
-	transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  background: rgb(97, 97, 97); 
 }
 
 .appear {
