@@ -1,3 +1,8 @@
+ /* Variables */
+:root {
+  --card-radius: 10px;
+}
+
 .wrapper {
   display: grid; 
   grid-template-columns: 3fr 1fr; 
@@ -39,69 +44,42 @@
 
 .decks {
   background: rgb(141, 141, 141); 
+  border-radius: var(--card-radius);
   height: 50px;
   width: 50px;
   margin: 10px;
   display: inline-block;
 }
 
-.card-container {
-  perspective: 1000px;
-
-}
-
-/* flip the pane when hovered */
-.card-container:hover .card, .card-container.hover .card {
-  transform: rotateY(180deg);
-}
-
 .card-container, .front, .back {
-	width: 50px;
-	height: 50px;
+	width: 150px;
+  height: 100px;
+  border-radius: var(--card-radius);
+  display: inline-block;
 }
 
-/* flip speed goes here */
-.card {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-  position: relative;
+.card-container {
+  margin: 10px;
 }
 
-/* hide back of pane during swap */
 .front, .back {
-	backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-/* front pane, placed above back */
-.front {
-	z-index: 2;
-	/* for firefox 31 */
-  transform: rotateY(0deg);
-  background: rgb(95, 68, 68); 
-
-}
-
-/* back, initially hidden pane */
-.back {
-  transform: rotateY(180deg);
-  background: rgb(97, 97, 97); 
+  text-align: center;
 }
 
 .appear {
   animation: appear .5s forwards;
 }
 
-@keyframes appear {
-  0% {
-    opacity: 0; 
-  }
-  100% {
-    opacity: 1; 
-  }
+.disappear {
+  animation: disappear .5s forwards;
 }
 
+@keyframes appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-/* https://davidwalsh.name/css-flip */
+@keyframes disappear {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
