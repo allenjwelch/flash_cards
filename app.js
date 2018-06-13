@@ -1,4 +1,4 @@
-// TODO: create array of card objects for sample data
+// array of card objects for sample data
 
 let deckInfo = [
   {
@@ -19,10 +19,13 @@ let deckInfo = [
 let cardPos = 0; 
 
 
+// TODO: load deck info on page load and on adding new deck instead of hard coded into index.html
 
+// TODO: have click event select that deck's info
 
 $('.deckSelection').on('click', '.decks', function() {
   let newDeck = $(this); 
+  console.log(newDeck)
   let cardContainer = newDeck[0].childNodes[1]; 
   // console.log(newDeck[0].childNodes[1]); 
   activeCards(deckInfo); 
@@ -38,8 +41,7 @@ $('.deckActive').on('click', '.decks', function() {
   oldDeck.addClass('appear');
 })
 
-// TODO: have sample data load cards to be added to active div after click from deckSelection
-
+// sample data loaded into cards array and added to active div after click from deckSelection
 function activeCards(deckInfo) {
   let cardArr = [];
   cardPos = 0; 
@@ -71,9 +73,10 @@ function activeCards(deckInfo) {
   // event listener for moving through cards in active deck ==
   $('.deckActive').on('click', '.cardBtns', function() {
     
-    // TODO: check for a specific btn and move current cards position based on button selected. 
-    console.log(cardPos)
-    console.log(this.id); 
+    // check for a specific btn and move current cards position based on button selected. 
+    
+    // console.log(cardPos)
+    // console.log(this.id); 
     cardCount = countInArray(cardArr, cardArr[cardPos]); 
 
     if (this.id === 'nailed') {
