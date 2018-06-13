@@ -27,7 +27,9 @@ $('.deckSelection').on('click', '.decks', function() {
   // console.log(newDeck[0].childNodes[1]); 
   activeCards(deckInfo); 
   // $('.deckActive').append(newDeck)
-  newDeck.addClass('disappear'); 
+
+  // remove new deck from deck selection
+  // newDeck.addClass('disappear'); 
 })
 
 $('.deckActive').on('click', '.decks', function() {
@@ -43,7 +45,7 @@ function activeCards(deckInfo) {
   cardPos = 0; 
   $('.deckActive').empty(); 
   deckInfo.forEach((cardInfo) => {
-    let container = $(`<div class="card-container appear" id="d1c1">`); 
+    let container = $(`<div class="card-container appear" id="${cardInfo.style}">`); 
     let card = $(`<div class="card">`); 
     let front = $(`<div class="front">`); 
       let frontInfo = $(`<h3 id="${cardInfo.style}">Style: ${cardInfo.style}</h3>`);
@@ -51,8 +53,8 @@ function activeCards(deckInfo) {
       let backInfo = $(`<p>ABV: ${cardInfo.abv}\n Characteristics: ${cardInfo.char}</p>`); 
       let links = 
       $(`<a class="cardBtns" id="nailed" href="#">Nailed it!</a>
-        <a class="cardBtns" id="kinda" href="#">Kinda</a>
-        <a class="cardBtns" id="notAtAll" href="#">Not at all</a>`); 
+        <a class="cardBtns" id="almost" href="#">Almost</a>
+        <a class="cardBtns" id="failed" href="#">Failed it</a>`); 
     front.append(frontInfo); 
     back.append(backInfo, links); 
     card.append(front, back); 
@@ -78,25 +80,11 @@ function activeCards(deckInfo) {
       if (cardCount > 1) {
         cardArr.shift(); 
       }
-    } else if (this.id === 'notAtAll') {
+    } else if (this.id === 'failed') {
       // adds the same card back into the deck towards the end
-      cardArr.splice(Math.floor(cardArr.length / 2), 0, cardArr[cardPos])
+      cardArr.splice(Math.ceil(cardArr.length / 2), 0, cardArr[cardPos])
     }
-
-    // switch (this.id) {
-    //   case 'nailed':
-    //     if (cardCount > 1) {
-    //       cardArr.shift(); 
-    //     }
-    //     break; 
-    //   case 'notAtAll':
-    //     cardArr.splice(cardArr.length-1, 0, cardArr[cardPos])
-    //     break; 
-    //   default:
-    //     break; 
-    // }
-
-    countInArray(cardArr, cardArr[cardPos]); 
+    console.log(cardArr); 
 
     // move user to next card in deck ====
     cardPos++; 
