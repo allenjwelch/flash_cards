@@ -1,21 +1,45 @@
 // array of card objects for sample data
 let deckInfo = [
   {
-    style: 'style1', 
-    abv: 5.5, 
-    char: 'Sample'
+    styleName: 'style1', 
+    familyName: 'familyName',
+    ABV: 5.5, 
+    IBU: 10, 
+    BU: 5.5, 
+    SRM: 20, 
+    image: '#',
+    description: 'Sample', 
+    example: 'examples'
   }, {
-    style: 'style2', 
-    abv: 5.5, 
-    char: 'Sample'
+    styleName: 'style2', 
+    familyName: 'familyName',
+    ABV: 5.5, 
+    IBU: 10, 
+    BU: 5.5, 
+    SRM: 20, 
+    image: '#',
+    description: 'Sample', 
+    example: 'examples'
   }, {
-    style: 'style3', 
-    abv: 5.5, 
-    char: 'Sample'
+    styleName: 'style3', 
+    familyName: 'familyName',
+    ABV: 5.5, 
+    IBU: 10, 
+    BU: 5.5, 
+    SRM: 20, 
+    image: '#',
+    description: 'Sample', 
+    example: 'examples'
   },
 ]; 
 
+
+
 let cardPos = 0; 
+
+$.getJSON("/home", function(beerStyles) {
+  console.log(beerStyles);
+});
 
 
 // TODO: load deck info on page load and on adding new deck instead of hard coded into index.html

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/allenjwelch/flash_cards#readme",
   "dependencies": {
+    "express": "^4.16.3",
     "mongojs": "^2.6.0"
   }
 }
