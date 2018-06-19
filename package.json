@@ -1,0 +1,22 @@
+{
+  "name": "flash_cards",
+  "version": "1.0.0",
+  "description": "A sample project testing the style and layout of a flashcard study app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allenjwelch/flash_cards.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allenjwelch/flash_cards/issues"
+  },
+  "homepage": "https://github.com/allenjwelch/flash_cards#readme",
+  "dependencies": {
+    "mongojs": "^2.6.0"
+  }
+}

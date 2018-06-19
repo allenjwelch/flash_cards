@@ -1,5 +1,4 @@
 // array of card objects for sample data
-
 let deckInfo = [
   {
     style: 'style1', 
@@ -114,7 +113,6 @@ function countInArray(array, what) {
   // console.log('count: ' + count);
   return count; 
 }
-
 
 
 
