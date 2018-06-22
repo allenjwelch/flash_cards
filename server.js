@@ -6,7 +6,7 @@ app.use(express.static("public"));
 const mongojs = require("mongojs");
 // Database configuration
 const databaseUrl = "scraper";
-const collections = ["scrapedBeer"];
+const collections = ["beerData"];
 
 // Hook mongojs configuration to the db variable
 const db = mongojs(databaseUrl, collections);
@@ -14,8 +14,8 @@ const db = mongojs(databaseUrl, collections);
    console.log("Database Error:", error);
   });
 
-app.get("/home", function(req, res) {
-  db.scrapedBeer.find({}, function(error, found) {
+app.get("/beer", function(req, res) {
+  db.beerData.find({}, function(error, found) {
     if (error) { console.log(error); }
     else {
       console.log(found); 
@@ -24,6 +24,16 @@ app.get("/home", function(req, res) {
   });
 });
 
+app.get("/beer/:style", function(req, res) {
+  let style = req.params.style;
+  db.beerData.find({ familyName: style}, function(error, found) {
+    if (error) { console.log(error); }
+    else {
+      console.log(found); 
+      res.json(found); 
+    }
+  });
+});
 
 // Set the app to listen on port 3000
 app.listen(3000, function() {

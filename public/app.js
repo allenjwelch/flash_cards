@@ -37,9 +37,16 @@ let deckInfo = [
 
 let cardPos = 0; 
 
-$.getJSON("/home", function(beerStyles) {
+$.getJSON("/beer", function(beerStyles) {
   console.log(beerStyles);
 });
+
+$.ajax({
+  url: "/beer/:style", 
+  type: "GET", 
+}).then(function(beer) {
+  console.log(beer); 
+}); 
 
 
 // TODO: load deck info on page load and on adding new deck instead of hard coded into index.html
